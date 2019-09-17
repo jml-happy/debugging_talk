@@ -4,4 +4,4 @@ project(debugging_talk)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(debugging_talk main.cpp tests.cpp tests.h debugging/segfault.cpp debugging/segfault.h multiprocess/parent.c)
-add_executable(multi_procs multiprocess/parent.c multiprocess/child.c multiprocess/grandchild.c)
+add_executable(multi_procs multiprocess/parent.c multiprocess/child.c multiprocess/grandchild.c multiprocess/child.h multiprocess/bakery.c multiprocess/globals.c multiprocess/globals.h)

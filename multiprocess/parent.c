@@ -4,6 +4,10 @@
 
 #include <unistd.h>
 #include <wait.h>
+#include <errno.h>
+#include "child.h"
+
+int lock = 0;
 
 int main() {
 
@@ -15,10 +19,11 @@ int main() {
         pid_ret = fork();
         // true if child
         if (!pid_ret) {
-            /* exec child */
+            doChild();
         }
     }
-    pid_t wait_ret = 0;
-    wait_ret =  wait(NULL);
-
+    pid_t childpid;
+    while (childpid = waitpid(-1, NULL, WNOHANG))
+        if ((childpid == -1) && (errno != EINTR))
+            break;
 }

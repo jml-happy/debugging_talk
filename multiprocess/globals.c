@@ -4,19 +4,17 @@
 
 #include "globals.h"
 
-int cur_max = 0;
-
 bool choosing[NUM_PROCS] = {false, false,
                             false, false,
                             false, false,
                             false, false,
                             false, false};
 
-int number[NUM_PROCS] = {0, 0,
-                         0, 0,
-                         0, 0,
-                         0, 0,
-                         0, 0};
+int ticket_array[NUM_PROCS] = {0, 0,
+                               0, 0,
+                               0, 0,
+                               0, 0,
+                               0, 0};
 
 bool should_loop[NUM_PROCS] = {true, true,
                                true, true,

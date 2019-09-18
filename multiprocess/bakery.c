@@ -6,20 +6,23 @@
 
 int max(int num_AR[], int arr_SZ);
 
-void process_i ( const int i ) /* ith Process */ {
+void goToBakery ( const int my_id_num ) /* ith Process */ {
     do {
-        choosing[i] = true;
-    number[i] = (cur_max += 1);
-    choosing[i] = false;
-    for ( int j = 0; j < NUM_PROCS; j++ ) {
-        while ( choosing[j] ); // Wait if j happens to be choosing
-        while ( (number[j] != 0)
-                && ( number[j] < number[i] || (number[j] == number[i] && j < i) );
+        choosing[my_id_num] = true;
+        ticket_array[my_id_num] = max(ticket_array, NUM_PROCS);
+    choosing[my_id_num] = false;
+    for (int other_id_num = 0; other_id_num < NUM_PROCS; other_id_num++ ) {
+        while ( choosing[other_id_num] ); // Wait if j happens to be choosing
+        while ( (ticket_array[other_id_num] != 0)
+                &&
+                      (ticket_array[other_id_num] < ticket_array[my_id_num]
+                      ||
+                      (ticket_array[other_id_num] == ticket_array[my_id_num] && other_id_num < my_id_num) );
     }
    // critical_section();
-    number[i] = 0;
+    ticket_array[my_id_num] = 0;
     //remainder_section();
-    } while ( should_loop[i] );
+    } while ( should_loop[my_id_num] );
 }
 
 int max(int num_AR[], int arr_SZ) {

@@ -5,6 +5,6 @@
 #ifndef DEBUGGING_TALK_CHILD_H
 #define DEBUGGING_TALK_CHILD_H
 
-void doChild();
+void doChild(int my_id);
 
 #endif //DEBUGGING_TALK_CHILD_H

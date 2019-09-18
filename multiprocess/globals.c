@@ -4,20 +4,8 @@
 
 #include "globals.h"
 
-bool choosing[NUM_PROCS] = {false, false,
-                            false, false,
-                            false, false,
-                            false, false,
-                            false, false};
-
-int ticket_array[NUM_PROCS] = {0, 0,
-                               0, 0,
-                               0, 0,
-                               0, 0,
-                               0, 0};
-
-bool should_loop[NUM_PROCS] = {true, true,
-                               true, true,
-                               true, true,
-                               true, true,
-                               true, true};
+pid_num_Q master_Q;
+int master_Q_length;
+bool choosing[NUM_PROCS];
+int ticket_array[NUM_PROCS];
+bool should_loop[NUM_PROCS];
